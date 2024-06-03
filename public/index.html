@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FB AUTO REACT</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/BgmWxja.jpeg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            max-width: 100%;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1877f2;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #166fe5;
+        }
+
+        #response {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .reaction {
+            font-size: 24px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FB AUTO REACT</h1>
+        <form id="reactForm">
+            <label for="link">Post Link:</label>
+            <input type="text" id="link" name="link" required>
+            
+            <label for="type">React Type:</label>
+            <select id="type" name="type" required>
+                <option value="LIKE">👍 Like</option>
+                <option value="LOVE">❤️ Love</option>
+                <option value="CARE">🥰 Care</option>
+                <option value="HAHA">😂 Haha</option>
+                <option value="WOW">😮 Wow</option>
+                <option value="SAD">😢 Sad</option>
+                <option value="ANGRY">😡 Angry</option>
+            </select>
+            
+            <label for="cookie">Cookie:</label>
+            <input type="text" id="cookie" name="cookie" required>
+            
+            <button type="submit">Send Reaction</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script>
+        // JavaScript Code
+        document.getElementById('reactForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const link = document.getElementById('link').value;
+            const type = document.getElementById('type').value;
+            const cookie = document.getElementById('cookie').value;
+
+            const responseElement = document.getElementById('response');
+            responseElement.textContent = 'Sending reaction...';
+            responseElement.className = '';
+
+            try {
+                const response = await fetch('/sendreact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ link, type, cookie })
+                });
+
+                const result = await response.json();
+                if (result.error) {
+                    responseElement.textContent = `Error: ${result.error}`;
+                    responseElement.className = 'error';
+                } else {
+                    responseElement.textContent = 'Reaction sent successfully.';
+                    responseElement.className = 'success';
+                }
+            } catch (error) {
+                responseElement.textContent = 'An error occurred. Please try again.';
+                responseElement.className = 'error';
+            }
+        });
+
+        window.onload = function() {
+            alert(`Welcome to the facebook auto reaction Made by joshua Apostol! This tool allows you to send reactions to fb posts.\n\nVersion: 1.0.0\n\nADVICE:\n➡️USE DUMMY ACCOUNT\n➡️GET THE COKIE OF DUMMY ACC\n➡️WAIT FOR MORE UPDATE\n\n press the OK to continue`);
+        };
+    </script>
+</body>
+</html>
