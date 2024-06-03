@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FB AUTO REACT</title>
-    <link rel="icon" type="image/jpeg" href="https://i.imgur.com/LYGQz6s.jpeg">
+    <link rel="icon" type="image/jpg" href="https://i.imgur.com/LYGQz6s.jpeg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,6 +25,14 @@
             width: 400px;
             max-width: 100%;
             margin: 20px;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
         }
 
         h1 {
@@ -105,6 +113,25 @@
             margin: 10px 0;
             color: #333;
         }
+
+        .fb-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .fb-link a {
+            padding: 10px 15px;
+            background-color: #4267B2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .fb-link a:hover {
+            background-color: #365899;
+        }
     </style>
 </head>
 <body>
@@ -118,7 +145,7 @@
             <select id="type" name="type" required>
                 <option value="LIKE">👍 LIKE</option>
                 <option value="LOVE">❤️ LOVE</option>
-                <option value="CARE">💖 CARE</option>
+                <option value="CARE">🥰 CARE</option>
                 <option value="HAHA">😂 HAHA</option>
                 <option value="WOW">😮 WOW</option>
                 <option value="SAD">😢 SAD</option>
@@ -140,6 +167,10 @@
             <p>➡️GET A COKIE ON KIWI EXTENSION</p>
             <p>➡️USE COKIE DOUGH ENTENSION</p>
             <p>➡️WAIT FOR MORE UPDATE...</p>
+        </div>
+        <div class="fb-link">
+            <p>visit the developer and message to report any bug's you encountered</p>
+            <a href="https://www.facebook.com/profile.php?id=100088690249020" target="_blank">DEVELOPER FACEBOOK</a>
         </div>
     </div>
     <script>
@@ -170,6 +201,8 @@
                 } else {
                     responseElement.textContent = 'Reaction sent successfully.';
                     responseElement.className = 'success';
+                    document.getElementById('link').value = '';
+                    document.getElementById('cookie').value = '';
                 }
             } catch (error) {
                 responseElement.textContent = 'An error occurred. Please try again.';
