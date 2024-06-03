@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FB AUTO REACT</title>
-    <link rel="icon" type="image/png" href="https://i.imgur.com/LYGQz6s.jpeg">
+    <link rel="icon" type="image/jpeg" href="https://i.imgur.com/LYGQz6s.jpeg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -86,6 +86,25 @@
             cursor: pointer;
             margin: 5px;
         }
+
+        .info-box {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .info-box h2 {
+            margin: 0;
+            color: #1877f2;
+        }
+
+        .info-box p {
+            margin: 10px 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -97,13 +116,13 @@
             
             <label for="type">React Type:</label>
             <select id="type" name="type" required>
-                <option value="LIKE">👍 Like</option>
-                <option value="LOVE">❤️ Love</option>
-                <option value="CARE">🥰 Care</option>
-                <option value="HAHA">😂 Haha</option>
-                <option value="WOW">😮 Wow</option>
-                <option value="SAD">😢 Sad</option>
-                <option value="ANGRY">😡 Angry</option>
+                <option value="LIKE">👍 LIKE</option>
+                <option value="LOVE">❤️ LOVE</option>
+                <option value="CARE">💖 CARE</option>
+                <option value="HAHA">😂 HAHA</option>
+                <option value="WOW">😮 WOW</option>
+                <option value="SAD">😢 SAD</option>
+                <option value="ANGRY">😡 ANGRY</option>
             </select>
             
             <label for="cookie">Cookie:</label>
@@ -112,9 +131,18 @@
             <button type="submit">Send Reaction</button>
         </form>
         <div id="response"></div>
+        <div class="info-box">
+            <p>Version: 1.0.0</p>
+            <p>Welcome to the facebook auto reaction Made by joshua Apostol! This tool allows you to send reactions to fb posts</p>
+            <h2>HOW TO USE</h2>
+            <p>➡️USE DUMMY ACCOUNT</p>
+            <p>➡️GET THE COKIE OF DUMMY</p>
+            <p>➡️GET A COKIE ON KIWI EXTENSION</p>
+            <p>➡️USE COKIE DOUGH ENTENSION</p>
+            <p>➡️WAIT FOR MORE UPDATE...</p>
+        </div>
     </div>
     <script>
-        // JavaScript Code
         document.getElementById('reactForm').addEventListener('submit', async (event) => {
             event.preventDefault();
 
@@ -148,10 +176,6 @@
                 responseElement.className = 'error';
             }
         });
-
-        window.onload = function() {
-            alert(`Welcome to the facebook auto reaction Made by joshua Apostol! This tool allows you to send reactions to fb posts.\n\nVersion: 1.0.0\n\nHOW TO USE:\n➡️USE DUMMY ACCOUNT\n➡️GET THE COKIE OF DUMMY\n➡️GET A COKIE ON KIWI EXTENSION\n➡️USE COKIE DOUGH ENTENSION\n➡️WAIT FOR MORE UPDATE\n\n press the OK to continue`);
-        };
     </script>
 </body>
 </html>
