@@ -51,7 +51,7 @@ app.post('/sendreact', (req, res) => {
         })
         .catch(error => {
             if (error.response && error.response.status === 403) {
-                res.json({ error: 'Invalid cookie. Please check your cookie and try again.' });
+                res.json({ cookieError: true });
             } else {
                 res.json({ error: 'An error occurred while sending the reaction. Please try again later.' });
             }
