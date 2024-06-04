@@ -135,18 +135,19 @@
         }
 
         .cokie {
-    display: inline-block;
-    padding: 10px 10px;
-    background-color: #4267B2;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    margin: 0px;
-  }
-  .cokie:hover {
-    background-color: #405D9B;
-  }
+            display: inline-block;
+            padding: 10px 10px;
+            background-color: #4267B2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 0px;
+        }
+
+        .cokie:hover {
+            background-color: #405D9B;
+        }
     </style>
 </head>
 <body>
@@ -214,14 +215,15 @@
                 if (result.error) {
                     responseElement.textContent = `Error: ${result.error}`;
                     responseElement.className = 'error';
+                } else if (result.cookieError) {
+                    responseElement.textContent = 'Invalid cookie. Please check your cookie and try again.';
+                    responseElement.className = 'error';
                 } else {
-                    responseElement.textContent = 'Reaction sent successfully.';
+                    responseElement.textContent = result.message;
                     responseElement.className = 'success';
-                    document.getElementById('link').value = '';
-                    document.getElementById('cookie').value = '';
                 }
             } catch (error) {
-                responseElement.textContent = 'An error occurred. Please try again.';
+                responseElement.textContent = 'An error occurred while sending the reaction. Please try again later.';
                 responseElement.className = 'error';
             }
         });
